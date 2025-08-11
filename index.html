@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nombre del Partido - Campaña Digital</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <video class="header-video" autoplay muted loop>
+        <source src="ruta/a/tu/video.mp4" type="video/mp4" />
+        Tu navegador no soporta el video.
+      </video>
+      <div class="header-overlay">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="#">
+              <img
+                src="imagenes/accionvecinal.png"
+                alt="Logo de Acción Vecinal"
+                class="logo-img"
+              />
+              <span class="logo-text">Acción Vecinal</span>
+            </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#candidatos">Candidatos</a></li>
+            <li><a href="#propuestas">Propuestas</a></li>
+            <li><a href="#sumate">Súmate</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </nav>
+        <div class="header-content">
+          <h1>Un titular fuerte para nuestra campaña</h1>
+          <p>
+            Una bajada que refuerce nuestra identidad y compromiso con San
+            Isidro.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="candidatos" class="candidatos-section">
+        <h2>Nuestros Candidatos</h2>
+        <div class="carrusel-container">
+          <button class="carrusel-btn prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carrusel-candidatos">
+            <div class="candidato-card">
+              <img src="imagenes/barbara-broese.png" alt="Bárbara Broese" />
+              <h3>Bárbara Broese</h3>
+              <button class="btn-perfil" data-candidato="barbara">
+                Ver Perfil
+              </button>
+            </div>
+            <div class="candidato-card">
+              <img src="imagenes/walter-perez.png" alt="Walter Pérez" />
+              <h3>Walter Pérez</h3>
+              <button class="btn-perfil" data-candidato="walter">
+                Ver Perfil
+              </button>
+            </div>
+            <div class="candidato-card">
+              <img
+                src="imagenes/fernanda-randolino.png"
+                alt="Fernanda Randolino"
+              />
+              <h3>Fernanda Randolino</h3>
+              <button class="btn-perfil" data-candidato="fernanda">
+                Ver Perfil
+              </button>
+            </div>
+            <div class="candidato-card">
+              <img src="imagenes/rodrigo-olivera.png" alt="Rodrigo Olivera" />
+              <h3>Rodrigo "Hongo" Olivera</h3>
+              <button class="btn-perfil" data-candidato="rodrigo">
+                Ver Perfil
+              </button>
+            </div>
+            <div class="candidato-card">
+              <img src="imagenes/silvia-tallarico.png" alt="Silvia Tallarico" />
+              <h3>Silvia Tallarico</h3>
+              <button class="btn-perfil" data-candidato="silvia">
+                Ver Perfil
+              </button>
+            </div>
+          </div>
+          <button class="carrusel-btn next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="propuestas" class="propuestas-section">
+        <h2>Nuestras Propuestas</h2>
+        <div class="propuestas-grid">
+          <div class="propuesta-item">
+            <i class="fas fa-handshake"></i>
+            <h3>Propuesta 1</h3>
+            <p>Resumen breve de la propuesta clave.</p>
+          </div>
+          <div class="propuesta-item">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Propuesta 2</h3>
+            <p>Resumen breve de la propuesta clave.</p>
+          </div>
+          <div class="propuesta-item">
+            <i class="fas fa-building"></i>
+            <h3>Propuesta 3</h3>
+            <p>Resumen breve de la propuesta clave.</p>
+          </div>
+        </div>
+        <a href="propuestas.html" class="btn-general"
+          >Ver Propuestas Detalladas</a
+        >
+      </section>
+
+      <section id="noticias" class="noticias-section">
+        <h2>Noticias y Redes Sociales</h2>
+        <div class="social-feed">
+          <div class="social-post">
+            <i class="fab fa-instagram"></i>
+            <p>Última publicación de Instagram aquí.</p>
+          </div>
+          <div class="social-post">
+            <i class="fab fa-tiktok"></i>
+            <p>Última publicación de TikTok aquí.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sumate" class="sumate-section">
+        <h2>¡Súmate a la Campaña!</h2>
+        <p>Con tu ayuda, podemos hacer la diferencia en San Isidro.</p>
+        <div class="cta-buttons">
+          <a href="voluntarios.html" class="btn-cta">Quiero ser Voluntario</a>
+          <a href="whatsapp.html" class="btn-cta"
+            >Recibir Novedades por WhatsApp</a
+          >
+          <a href="fiscales.html" class="btn-cta">Quiero ser Fiscal</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>
+          Email: <a href="mailto:contacto@partido.com">contacto@partido.com</a>
+        </p>
+        <p>Dirección: Calle Falsa 123, San Isidro</p>
+      </div>
+      <p class="copyright">
+        &copy; 2025 Nombre del Partido. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
