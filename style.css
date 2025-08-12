@@ -53,6 +53,7 @@ body {
   padding: 20px;
 }
 
+/* Navbar de escritorio */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -61,11 +62,21 @@ body {
   top: 0;
   width: 100%;
   padding: 20px 50px;
+  z-index: 1000;
 }
 
+/* Contenedor del menú y los iconos */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Enlaces del menú */
 .nav-links {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
@@ -77,9 +88,10 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #ffd700; /* Color de acento para el hover */
+  color: #ffd700;
 }
 
+/* Iconos de redes sociales */
 .social-icons a {
   color: white;
   font-size: 1.5em;
@@ -89,6 +101,24 @@ body {
 
 .social-icons a:hover {
   color: #ffd700;
+}
+
+/* Menú hamburguesa (oculto en desktop) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.4s;
 }
 
 .header-content {
@@ -135,30 +165,40 @@ h2 {
   font-weight: bold;
 }
 
-/* Sección de Candidatos (Carrusel) */
+/* Carrusel de Candidatos */
+.carrusel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .carrusel-candidatos {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permitimos que las tarjetas se envuelvan en pantallas pequeñas */
+  gap: 20px;
+  overflow-x: hidden; /* Oculta el scroll horizontal por defecto */
+}
+
+/* Ocultamos los botones de flecha por defecto */
+.carrusel-btn {
+  display: none;
 }
 
 .candidato-card {
+  flex: 0 0 200px;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  width: 250px;
-}
-
-.candidato-card:hover {
-  transform: translateY(-10px);
+  text-align: center;
 }
 
 .candidato-card img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -181,7 +221,15 @@ h2 {
 /* Sección de CTA */
 .sumate-section {
   background-color: #003366;
+  color: white; /* Corregido: El texto de toda la sección ahora es blanco */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.sumate-section h2 {
   color: white;
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 .cta-buttons {
@@ -209,7 +257,7 @@ h2 {
 /* Footer */
 .footer {
   background-color: #002244;
-  color: white;
+  color: white; /* Corregido: El texto de toda la sección ahora es blanco */
   text-align: center;
   padding: 30px 0;
 }
@@ -225,25 +273,70 @@ h2 {
   color: #ffd700;
 }
 
-/* Responsive Design */
+/* Corregido: Estilos para el enlace de email */
+.footer-info a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-info a:hover {
+  color: #ffd700;
+}
+
+.copyright {
+  color: white;
+  margin-top: 10px;
+}
+
+/* Media Query para la vista móvil */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-wrap: wrap;
     padding: 20px;
+  }
+
+  /* Ocultamos el menú por defecto en móvil */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 51, 102, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* Mostramos el botón de hamburguesa en móvil */
+  .hamburger {
+    display: block;
+  }
+
+  .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
   }
 
   .nav-links {
     flex-direction: column;
+    width: 100%;
     margin-top: 20px;
-    text-align: center;
   }
 
   .nav-links li {
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   .social-icons {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .header-content h1 {
@@ -252,5 +345,27 @@ h2 {
 
   .header-content p {
     font-size: 1em;
+  }
+
+  /* Carrusel en móvil */
+  .carrusel-candidatos {
+    display: flex;
+    flex-wrap: nowrap; /* Desactivamos el "wrap" para que no se apilen */
+    justify-content: flex-start;
+    overflow-x: scroll; /* Hacemos que el contenedor sea deslizable horizontalmente */
+    -webkit-overflow-scrolling: touch; /* Para un scroll más suave en iOS */
+    scroll-snap-type: x mandatory; /* Para que el scroll se detenga en cada tarjeta */
+    scrollbar-width: none; /* Para ocultar la barra de desplazamiento en Firefox */
+  }
+
+  /* Ocultamos la barra de desplazamiento para navegadores basados en Webkit (Chrome, Safari) */
+  .carrusel-candidatos::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carrusel-candidatos > * {
+    scroll-snap-align: center; /* Alinea cada tarjeta al centro al hacer scroll */
+    flex: 0 0 80%; /* Hacemos que cada tarjeta ocupe el 80% del ancho del contenedor */
+    margin: 0 10px;
   }
 }
