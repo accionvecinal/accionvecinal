@@ -546,8 +546,16 @@ h2 {
     font-size: 1.5em;
   }
 
+  h2 {
+    font-size: 1.8em;
+  }
+
   .header-content p {
     font-size: 1em;
+  }
+
+  .form-row {
+    flex-direction: column;
   }
 }
 
