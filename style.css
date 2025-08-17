@@ -51,7 +51,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
+  /* background: transparent; */
+  /* background: rgba(0, 0, 0, 0.4);*/
+  background: linear-gradient(
+    180deg,
+    /* Dirección del gradiente: de arriba hacia abajo */ transparent 50%,
+    /* Comienza transparente y se mantiene así hasta el 30% de la altura */
+      rgba(0, 0, 0, 0.75) 70%,
+    /* Transiciona a un negro del 70% de opacidad, centrado al 55% */
+      transparent 90% /* Vuelve a ser transparente hacia el 80% de la altura */
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,7 +142,7 @@ body {
 /* Contenido de la cabecera, lo movemos debajo del navbar */
 .header-content {
   position: relative;
-  top: 150px; /* Ajustamos la posición para que comience debajo del navbar */
+  top: 200px; /* Ajustamos la posición para que comience debajo del navbar */
   z-index: 0;
 }
 
