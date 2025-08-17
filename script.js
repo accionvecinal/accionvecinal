@@ -3,14 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
 
-  // Cerrar el menú al hacer clic en un enlace (para mejor UX en móvil)
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
+  // Lógica para cerrar el menú al hacer clic en un enlace de navegación
+  const navLinks = document.querySelectorAll(".nav-links a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      // Solo cerramos el menú si está activo
+      if (navMenu.classList.contains("active")) {
+        navMenu.classList.remove("active");
+      }
+      // La navegación a la sección se mantiene sin necesidad de event.preventDefault()
+      // porque el enlace href ya hace el trabajo por nosotros.
     });
   });
 
@@ -23,4 +31,26 @@ document.addEventListener("DOMContentLoaded", () => {
       // Aquí iría el código para el pop-up
     });
   });
+
+  // Lógica del Carrusel de Candidatos (se mantiene)
+  const carrusel = document.querySelector(".carrusel-candidatos");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+
+  if (carrusel && prevBtn && nextBtn) {
+    const card = carrusel.querySelector(".candidato-card");
+    if (card) {
+      const carruselStyle = window.getComputedStyle(carrusel);
+      const gap = parseFloat(carruselStyle.gap) || 0;
+      const scrollAmount = card.offsetWidth + gap;
+
+      nextBtn.addEventListener("click", () => {
+        carrusel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+
+      prevBtn.addEventListener("click", () => {
+        carrusel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+    }
+  }
 });
